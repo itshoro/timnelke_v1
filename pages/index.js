@@ -9,7 +9,9 @@ export default function Home() {
       </Head>
 
       <main>
-        
+        <div className="text-2xl">
+          Hello world!
+        </div>
       </main>
 
       <footer>
