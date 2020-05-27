@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
+
+.text-gradient {
+    @apply bg-gradient;
+    background-clip: text;
+}
+
+.bg-gradient {
+    background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
+}
+
+*:hover.hover\:bg-gradient {
+    background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
+}
+
+*:hover.hover\:text-gradient {
+    @apply bg-gradient;    
+    background-clip: text;
+}
+
 @tailwind utilities;
