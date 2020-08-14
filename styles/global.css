@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+.w-reading {
+    max-width: 75ch;
+}
+
 .text-gradient {
     @apply bg-gradient;
     background-clip: text;

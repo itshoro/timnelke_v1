@@ -4,13 +4,13 @@ const Navigation = ({ className }) => {
   return (
     <div className={`flex flex-row-reverse z-40 ${className}`}>
       <input className="hidden" type="checkbox" id="hamburger" />
-      <label htmlFor="hamburger" className="inlineBlock relative" >
+      <label htmlFor="hamburger" className="inlineBlock relative md:hidden" >
         <span></span>
         <span></span>
         <span></span>
       </label>
-      <nav className="h-screen w-screen absolute top-0 right-0 bg-gray-100">
-        <ul className="flex flex-col h-full space-y-4 text-2xl items-center justify-center md:space-x-0 md:space-x-2">
+      <nav className="h-screen w-screen md:w-auto md:h-auto absolute md:relative top-0 right-0 bg-gray-100 md:bg-transparent transform -translate-y-full md:translate-y-0">
+        <ul className="flex flex-col md:flex-row h-full space-y-4 md:space-y-0 md:space-x-12 text-2xl md:text-base md:font-medium items-center justify-center md:space-x-0 md:space-x-2">
           <li><a href="#">Home</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Projects</a></li>
@@ -19,7 +19,6 @@ const Navigation = ({ className }) => {
       <style jsx>{`
         nav {
           z-index: -1;
-          transform: translateY(-100%);
           transition: 150ms ease-out transform;
         }
         #hamburger:checked ~ nav {
