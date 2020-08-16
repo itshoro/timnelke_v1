@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "dark": {
+          "raw": "(prefers-color-scheme: dark)",
+        }
+      },
       colors: {
         foxfire: {
           '100': '#fee7eb',
@@ -17,19 +22,11 @@ module.exports = {
           '800': '#aa0829',
           '900': '#79061d',
         }
-      }
+      },
+      fontSize: {
+        "6xl": "3.5rem"
+      },
     },
-    fontSize: {
-      "sm": "0.75rem",
-      "base": "0.875rem",
-      "lg": "1rem",
-      "xl": "1.25rem",
-      "2xl": "1.5rem",
-      "3xl": "1.875rem",
-      "4xl": "2.25rem",
-      "5xl": "3rem",
-      "6xl": "3.5rem"
-    }
   },
   variants: {},
   plugins: [
