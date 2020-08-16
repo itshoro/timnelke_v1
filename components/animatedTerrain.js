@@ -18,8 +18,8 @@ const AnimatedTerrain = ({ className }) => {
   const setup = (p, parentRef) => {
     p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL).parent(parentRef);
 
-    rows = h / scale;
-    cols = w / scale;
+    rows = Math.ceil(h / scale);
+    cols = Math.ceil(w / scale);
     for (let y = 0; y < rows; y++) {
       terrain[y] = [];
       alpha[y] = p.map(y, 0, rows - 1, 5, 15);
@@ -33,37 +33,35 @@ const AnimatedTerrain = ({ className }) => {
 
 
   const draw = (p) => {
-    
     p.background(255);
-    velocityY -= 0.01;
-    
-    let yOffset = velocityY;
-    for (let y = 0; y < rows; y++) {
-      let xOffset = 0;
-      for (let x = 0; x < cols; x++) {
-        terrain[y][x] = p.map(p.noise(xOffset, yOffset), 0, 1, -150, 100);
-        xOffset += 0.3;
-      }
-      yOffset += 0.2;
-    }
-    
+    velocityY -= 0.005;
+
     p.translate(0, 50);
     p.rotateX(p.PI / 3);
 
     p.translate(-w, -h);
+    
+    let yOffset = velocityY;
     for (let y = 0; y < rows - 1; y++) {
+      let xOffset = 0;
 
       p.fill(0, alpha[y]);
       p.stroke(0, alpha[y]);
-      
+
       p.beginShape(p.TRIANGLE_STRIP);
       for (let x = 0; x < cols; x++) {
-        // p.fill(0, alpha[y][x]);
-        // p.stroke(0, alpha[y][x]);
-        p.vertex(x * scale * fac, y * scale * fac, terrain[y][x]);
-        p.vertex(x * scale * fac, (y + 1) * scale * fac, terrain[y + 1][x]);
+        if(y % 2 == 0) {
+          terrain[y][x] = p.map(p.noise(xOffset, yOffset), 0, 1, -150, 100);
+          terrain[y + 1][x] = p.map(p.noise(xOffset, yOffset + 0.2), 0, 1, -150, 100);
+
+        }
+        xOffset += 0.3;
+
+        p.vertex(x * scale * fac, y * scale * fac, terrain[y][x] * fac);
+        p.vertex(x * scale * fac, (y + 1) * scale * fac, terrain[y + 1][x] * fac);
       }
-      p.endShape();
+      p.endShape()
+      yOffset += 0.2;
     }
   }
 
