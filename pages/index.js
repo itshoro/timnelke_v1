@@ -6,7 +6,7 @@ import AnimatedTerrain from "../components/animatedTerrain";
 import { AcademicCapOutline, Adjustments, User, Microphone, Code } from "heroicons-react"
 
 import Social from "../components/social";
-import { FigmaIcon, PythonIcon, DotNetCoreIcon } from "../components/icons";
+import { FigmaIcon, PythonIcon, DotNetCoreIcon, JavascriptIcon, TimNelkeIcon } from "../components/icons";
 
 const Avatar = ({ src, alt, size = "md" }) => {
   const sizeStyle = {
@@ -106,12 +106,12 @@ export default function Home() {
           <div className="leading-relaxed border-b border-gray-200 dark:border-gray-800 pb-12 mb-12">
             <h2 className="text-black font-bold my-12">Biography</h2>
             <div className="space-y-6">
-              <p>Currently living and studying in and around Willich, Germany. I’m trying to find the limits of what I can achieve and surpass them. I’m a diligent worker, who in a team environment serves as a full-fleged <a className="text-foxfire-600">giver</a>.</p>
-              <p>My main workflow consists of a “try - improve - deliver” concept, which is driven by my hunger to improve myself, my workflow and gain knowledge.</p>
+              <p>Currently living and studying in and around Willich, Germany. I’m trying to find the limits of what I can achieve and surpass them. I’m a diligent worker, who in a team environment, serves as a full-fleged <a className="text-foxfire-600">giver</a>.</p>
+              <p>My main workflow consists of a “try - improve - deliver” concept, which is driven by my hunger to gain knowledge and try out amazing new tools.</p>
               <p>When working with others they mostly notice me taking the initiative trying to work out problems and how to overcome them, which is a stark contrast to my normally pretty introverted personality (ISFJ-A / ISFJ-T).</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
             <div>
               <div className="flex items-center space-x-2 text-black mb-2">
                 <Adjustments size="16" />
@@ -121,19 +121,19 @@ export default function Home() {
                 <li>
                   <div className="flex items-center space-x-2">
                     <AcademicCapOutline size="16" />
-                    <span>Design, Wireframes</span>
+                    <span>Active Student</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <User size="16" />
-                    <span>Python</span>
+                    <span>Giver, ISFJ-A / ISFJ-T</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <Microphone size="16" />
-                    <span>.NET Core</span>
+                    <span>Conference Talk on PWAs</span>
                   </div>
                 </li>
               </ul>
@@ -141,7 +141,7 @@ export default function Home() {
             <div>
               <div className="flex items-center space-x-2 text-black mb-2">
                 <Code size="16" />
-                <h2 className="font-bold text-xs uppercase">Skills</h2>
+                <h2 className="font-bold uppercase">Skills</h2>
               </div>
               <ul className="space-y-2">
                 <li>
@@ -162,17 +162,21 @@ export default function Home() {
                     <span>.NET Core</span>
                   </div>
                 </li>
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <JavascriptIcon />
+                    <span>JavaScript, HTML5, CSS3</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
         <div className="bg-gray-100 dark:bg-gray-00 bg-opacity-50 w-full h-full">
-          <div className="grid h-full">
+          <div className="flex flex-col h-full">
             <div className="flex flex-col overflow-hidden w-2/5 bg-white rounded shadow-lg m-auto">
-              <div className="relative overflow-hidden h-64 w-full">
-                <img src="/profile.png" className="block absolute top-0 left-0" />
-              </div>
+              <img src="/profile.jpg" className="block object-contain" />
               <div className="px-8 py-4">
                 <Social />
               </div>
@@ -190,7 +194,13 @@ export default function Home() {
         </div>
       </section>
 
-      <footer></footer>
+      <footer className="flex text-gray-400 px-24 py-12 space-x-2">
+        <Logo className="h-8 border-r pr-2" />
+        <div className="flex flex-col text-xs">
+          <span>Designed and Developed by</span>
+          <span className="font-medium">&copy; Tim Nelke 2018 &mdash; 2020</span>
+        </div>
+      </footer>
     </div>
   );
 }
