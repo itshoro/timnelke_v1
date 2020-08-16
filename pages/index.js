@@ -72,14 +72,14 @@ const Experience = ({ title, position, time, description }) => {
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="dark:bg-black dark:text-gray-300">
       <Head>
         <title>Tim Nelke</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="min-h-screen flex flex-col px-24 py-8">
-        <div className="flex items-center justify-between border-b py-6">
+        <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-800 py-6">
           <Link href="/">
             <a className="z-50">
               <Logo className="h-8 hover:text-foxfire-600" />
@@ -89,12 +89,12 @@ export default function Home() {
         </div>
 
         <section className="grid grid-cols-2 gap-8 my-auto z-10">
-          <h1 className="text-black text-lg leading-none">
+          <h1 className="text-black dark:text-white text-lg leading-none">
             Ohayo, my name is <br />
             <span className="text-transparent text-gradient text-6xl font-bold">Tim Nelke.</span>
           </h1>
 
-          <p className="font-medium text-gray-600">
+          <p className="font-medium text-gray-600 dark:text-gray-200">
             Based in Willich, Germany, I’m a computer science student at <a className="text-foxfire-600">Hochschule Niederrhein</a>, currently threading the needle between being a jack-of-all-trades and becoming an expert, who blends design knowledge and application development.
           </p>
         </section>
@@ -102,84 +102,93 @@ export default function Home() {
       </div>
 
       <section className="grid grid-cols-2 gap-8">
-          <div className="pl-24 py-12">
-            <div className="leading-relaxed border-b pb-12 mb-12">
-              <h2 className="text-black font-bold my-12">Biography</h2>
-              <div className="space-y-6">
-                <p>Currently living and studying in and around Willich, Germany. I’m trying to find the limits of what I can achieve and surpass them. I’m a diligent worker, who in a team environment serves as a full-fleged <a className="text-foxfire-600">giver</a>.</p>
-                <p>My main workflow consists of a “try - improve - deliver” concept, which is driven by my hunger to improve myself, my workflow and gain knowledge.</p>
-                <p>When working with others they mostly notice me taking the initiative trying to work out problems and how to overcome them, which is a stark contrast to my normally pretty introverted personality (ISFJ-A / ISFJ-T).</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="flex items-center space-x-2 text-black mb-2">
-                  <Adjustments size="16" />
-                  <h2 className="font-bold text-xs uppercase">Stats</h2>
-                </div>
-                <ul className="space-y-2">
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <AcademicCapOutline size="16" />
-                      <span>Design, Wireframes</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <User size="16" />
-                      <span>Python</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <Microphone size="16" />
-                      <span>.NET Core</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div className="flex items-center space-x-2 text-black mb-2">
-                  <Code size="16" />
-                  <h2 className="font-bold text-xs uppercase">Skills</h2>
-                </div>
-                <ul className="space-y-2">
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <FigmaIcon />
-                      <span>Design, Wireframes</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <PythonIcon />
-                      <span>Python</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex items-center space-x-2">
-                      <DotNetCoreIcon />
-                      <span>.NET Core</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        <div className="pl-24 py-12">
+          <div className="leading-relaxed border-b border-gray-200 dark:border-gray-800 pb-12 mb-12">
+            <h2 className="text-black font-bold my-12">Biography</h2>
+            <div className="space-y-6">
+              <p>Currently living and studying in and around Willich, Germany. I’m trying to find the limits of what I can achieve and surpass them. I’m a diligent worker, who in a team environment serves as a full-fleged <a className="text-foxfire-600">giver</a>.</p>
+              <p>My main workflow consists of a “try - improve - deliver” concept, which is driven by my hunger to improve myself, my workflow and gain knowledge.</p>
+              <p>When working with others they mostly notice me taking the initiative trying to work out problems and how to overcome them, which is a stark contrast to my normally pretty introverted personality (ISFJ-A / ISFJ-T).</p>
             </div>
           </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <div className="flex items-center space-x-2 text-black mb-2">
+                <Adjustments size="16" />
+                <h2 className="font-bold text-xs uppercase">Stats</h2>
+              </div>
+              <ul className="space-y-2">
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <AcademicCapOutline size="16" />
+                    <span>Design, Wireframes</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <User size="16" />
+                    <span>Python</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <Microphone size="16" />
+                    <span>.NET Core</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="flex items-center space-x-2 text-black mb-2">
+                <Code size="16" />
+                <h2 className="font-bold text-xs uppercase">Skills</h2>
+              </div>
+              <ul className="space-y-2">
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <FigmaIcon />
+                    <span>Design, Wireframes</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <PythonIcon />
+                    <span>Python</span>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center space-x-2">
+                    <DotNetCoreIcon />
+                    <span>.NET Core</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <div className="bg-gray-100 bg-opacity-50 w-full h-full">
-            <div className="grid h-full">
-              <div className="flex flex-col overflow-hidden w-2/5 bg-white rounded shadow-lg m-auto">
-                <div className="relative overflow-hidden h-64 w-full">
-                  <img src="/profile.png" className="block absolute top-0 left-0"/>
-                </div>
-                <div className="px-8 py-4">
-                  <Social />
-                </div>
+        <div className="bg-gray-100 dark:bg-gray-00 bg-opacity-50 w-full h-full">
+          <div className="grid h-full">
+            <div className="flex flex-col overflow-hidden w-2/5 bg-white rounded shadow-lg m-auto">
+              <div className="relative overflow-hidden h-64 w-full">
+                <img src="/profile.png" className="block absolute top-0 left-0" />
+              </div>
+              <div className="px-8 py-4">
+                <Social />
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <section className="px-24">
+        <h2 className="text-black font-bold my-12">Projects</h2>
+        <div className="grid grid-cols-4 gap-8">
+          <div className="w-full h-64 bg-black dark:bg-gray-700 col-span-2 rounded"></div>
+          <div className="w-full h-64 bg-teal-600 rounded"></div>
+          <div className="w-full h-64 bg-foxfire-600 rounded"></div>
+        </div>
+      </section>
 
       <footer></footer>
     </div>
