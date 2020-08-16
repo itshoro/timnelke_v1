@@ -9,14 +9,17 @@ const AnimatedTerrain = ({ className }) => {
 
   let terrain = [];
   let alpha = [];
+  let fadeIn = 0;
   let velocityY = 0;
   
+  let context;
 
   const h = typeof window !== "undefined" ? window.innerHeight / 2 : 1;
   const w = typeof window !== "undefined" ? window.innerWidth / 2 : 1;
 
   const setup = (p, parentRef) => {
-    p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL).parent(parentRef);
+    context = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL).parent(parentRef);
+    // context.canvas.classList.add("opacity-0");
 
     rows = Math.ceil(h / scale);
     cols = Math.ceil(w / scale);
@@ -33,6 +36,7 @@ const AnimatedTerrain = ({ className }) => {
 
 
   const draw = (p) => {
+
     p.background(255);
     velocityY -= 0.005;
 
@@ -45,8 +49,8 @@ const AnimatedTerrain = ({ className }) => {
     for (let y = 0; y < rows - 1; y++) {
       let xOffset = 0;
 
-      p.fill(0, alpha[y]);
-      p.stroke(0, alpha[y]);
+      p.fill(0, alpha[y] * fadeIn);
+      p.stroke(0, alpha[y] * fadeIn);
 
       p.beginShape(p.TRIANGLE_STRIP);
       for (let x = 0; x < cols; x++) {
@@ -63,6 +67,10 @@ const AnimatedTerrain = ({ className }) => {
       p.endShape()
       yOffset += 0.2;
     }
+
+    if (fadeIn < 1)
+      fadeIn += 0.025;
+
   }
 
   return <Sketch className={className} setup={setup} draw={draw}></Sketch>
