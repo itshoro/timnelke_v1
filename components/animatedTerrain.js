@@ -14,8 +14,27 @@ const AnimatedTerrain = ({ className }) => {
   
   let context;
 
-  const h = typeof window !== "undefined" ? window.innerHeight / 2 : 1;
-  const w = typeof window !== "undefined" ? window.innerWidth / 2 : 1;
+  const isWindowDefined = typeof window !== "undefined";
+
+  const h = isWindowDefined ? window.innerHeight / 2 : 1;
+  const w = isWindowDefined ? window.innerWidth / 2 : 1;
+
+
+  const LIGHT = 0;
+  const DARK = 1;
+  const colors = [
+    0,
+    255
+  ];
+  let activeColor = LIGHT;
+
+  let media;
+  if (isWindowDefined)
+    media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const changeColorScheme = (media) => {
+    activeColor = media.matches ? DARK : LIGHT;
+  }
 
   const setup = (p, parentRef) => {
     context = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL).parent(parentRef);
@@ -32,12 +51,15 @@ const AnimatedTerrain = ({ className }) => {
       //   alpha[y][x] = p.map(y, 0, rows - 1, 5, 15) * p.map((x / cols / 2) % 2, 0, 1, 0, 1);
       // }
     }
+
+      changeColorScheme(media);
+      media.addListener(changeColorScheme);
   }
 
 
   const draw = (p) => {
-
-    p.background(255);
+    p.background(colors[(activeColor + 1) % colors.length]);
+    
     velocityY -= 0.005;
 
     p.translate(0, 50);
@@ -49,8 +71,8 @@ const AnimatedTerrain = ({ className }) => {
     for (let y = 0; y < rows - 1; y++) {
       let xOffset = 0;
 
-      p.fill(0, alpha[y] * fadeIn);
-      p.stroke(0, alpha[y] * fadeIn);
+      p.fill(colors[activeColor], alpha[y] * fadeIn * (1 + activeColor * 0.5));
+      p.stroke(colors[activeColor], alpha[y] * fadeIn * (1 + activeColor * 0.5));
 
       p.beginShape(p.TRIANGLE_STRIP);
       for (let x = 0; x < cols; x++) {
