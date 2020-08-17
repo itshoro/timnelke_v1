@@ -78,7 +78,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-screen flex flex-col px-24 py-8">
+      <div className="min-h-screen flex flex-col px-8 md:px-24 py-8">
         <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-800 py-6">
           <Link href="/">
             <a className="z-50">
@@ -88,7 +88,7 @@ export default function Home() {
           <Navigation />
         </div>
 
-        <section className="grid grid-cols-2 gap-8 my-auto z-10">
+        <section className="grid grid-flow-row md:grid-cols-2 gap-8 my-auto z-10">
           <h1 className="text-black dark:text-white text-lg leading-none">
             Ohayo, my name is <br />
             <span className="text-transparent text-gradient text-6xl font-bold">Tim Nelke.</span>
@@ -101,10 +101,10 @@ export default function Home() {
         <AnimatedTerrain className="block absolute bottom-0 left-0 opacity-50 overflow-hidden w-screen max-w-full" />
       </div>
 
-      <section className="grid grid-cols-2 gap-8">
-        <div className="pl-24 py-12">
+      <section className="grid grid-cols-1 grid-flow-row md:grid-rows-1 md:grid-cols-2 md:gap-8">
+        <div className="px-8 md:pr-0 md:pl-24 py-12">
           <div className="leading-relaxed border-b border-gray-200 dark:border-gray-800 pb-12 mb-12">
-            <h2 className="text-black font-bold my-12">Biography</h2>
+            <h2 className="text-black dark:text-white font-bold my-12">Biography</h2>
             <div className="space-y-6">
               <p>Currently living and studying in and around Willich, Germany. I’m trying to find the limits of what I can achieve and surpass them. I’m a diligent worker, who in a team environment, serves as a full-fleged <a className="text-foxfire-600">giver</a>.</p>
               <p>My main workflow consists of a “try - improve - deliver” concept, which is driven by my hunger to gain knowledge and try out amazing new tools.</p>
@@ -173,11 +173,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-gray-100 dark:bg-gray-00 bg-opacity-50 w-full h-full">
-          <div className="flex flex-col h-full">
+        <div className="bg-gray-100 dark:bg-gray-900 bg-opacity-50 w-full h-full row-start-1 md:row-start-auto">
+          <div className="flex flex-col h-full py-8 md:py-0">
             <div className="flex flex-col overflow-hidden w-2/5 bg-white rounded shadow-lg m-auto">
               <img src="/profile.jpg" className="block object-contain" />
-              <div className="px-8 py-4">
+              <div className="flex px-8 py-4">
                 <Social />
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-24">
+      <section className="px-8 md:px-24">
         <h2 className="text-black font-bold my-12">Projects</h2>
         <div className="grid grid-cols-4 gap-8">
           <div className="w-full h-64 bg-black dark:bg-gray-700 col-span-2 rounded"></div>
