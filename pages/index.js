@@ -159,9 +159,11 @@ export default function Home() {
 
         <div className="bg-gray-100 dark:bg-off-black bg-opacity-50 w-full h-full row-start-1 md:row-start-auto">
           <div className="flex flex-col h-full py-8 md:py-0">
-            <div className="flex flex-col overflow-hidden w-2/5 bg-white dark:bg-black rounded shadow-lg m-auto">
-              <img src="/profile.jpg" className="block object-contain" />
-              <div className="flex px-8 py-4">
+            <div className="flex flex-row md:flex-col items-start justify-start mx-8 md:m-auto overflow-hidden md:w-3/5 lg:w-2/5 bg-white dark:bg-black rounded shadow-lg">
+              <div className="w-2/5 md:w-auto">
+                <img src="/profile.jpg" className="block object-contain" />
+              </div>
+              <div className="w-full h-full">
                 <Social />
               </div>
             </div>

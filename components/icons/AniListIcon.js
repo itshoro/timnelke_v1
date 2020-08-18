@@ -1,5 +1,6 @@
-const AniListIcon = () => {
-    return <svg width="16" height="16" fill="none">
+const AniListIcon = ({ size }) => {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none">
       <rect width="16" height="16" rx="3" fill="#1F2631" />
       <path
         d="M8.413 12a.32.32 0 01-.216-.084.32.32 0 01-.084-.216V3.9c0-.088.028-.16.084-.216a.32.32 0 01.216-.084h1.584c.088 0 .16.028.216.084a.292.292 0 01.084.216v6.288h3.636c.088 0 .16.032.216.096a.292.292 0 01.084.216v1.2a.32.32 0 01-.084.216.292.292 0 01-.216.084h-5.52z"
@@ -10,6 +11,7 @@ const AniListIcon = () => {
         fill="#fff"
       />
     </svg>
+  );
 };
 
 export default AniListIcon;
