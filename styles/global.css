@@ -1,26 +1,31 @@
 @tailwind base;
 @tailwind components;
 
+::selection {
+  background-color: #79ebff;
+  @apply text-off-black;
+}
+
 .w-reading {
-    max-width: 75ch;
+  max-width: 75ch;
 }
 
 .text-gradient {
-    @apply bg-gradient;
-    background-clip: text;
+  @apply bg-gradient;
+  background-clip: text;
 }
 
 .bg-gradient {
-    background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
+  background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
 }
 
 *:hover.hover\:bg-gradient {
-    background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
+  background: linear-gradient(to right bottom, #f20c3a, #ff0a7f);
 }
 
 *:hover.hover\:text-gradient {
-    @apply bg-gradient;    
-    background-clip: text;
+  @apply bg-gradient;
+  background-clip: text;
 }
 
 @tailwind utilities;
