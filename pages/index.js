@@ -28,7 +28,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-screen flex flex-col px-8 md:px-24 py-8">
+      <div className="min-h-screen flex flex-col px-8 md:px-24 py-8 z-50">
         <div className="flex items-center justify-between border-b border-lighter-gray dark:border-off-black py-6 z-10">
           <Link href="/">
             <a className="z-50">
