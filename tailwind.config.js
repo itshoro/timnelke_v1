@@ -1,12 +1,9 @@
 module.exports = {
-  purge: [
-    "./pages/**/*.js",
-    "./components/**/*.js"
-  ],
+  purge: ['./pages/**/*.js', './components/**/*.js'],
   theme: {
     extend: {
       screens: {
-        'dark': { raw: '(prefers-color-scheme: dark)' }
+        dark: { raw: '(prefers-color-scheme: dark)' },
       },
       colors: {
         foxfire: {
@@ -19,15 +16,18 @@ module.exports = {
           '700': '#db0b34',
           '800': '#aa0829',
           '900': '#79061d',
-        }
+        },
+        'lighter-gray': '#eeeeee',
+        'light-gray': '#727272',
+        'off-black': '#0e0e0e',
       },
       fontSize: {
-        "6xl": "3.5rem"
+        '6xl': '3.5rem',
       },
     },
   },
-  variants: {},
-  plugins: [
-    require("@tailwindcss/ui")
-  ],
-}
+  variants: {
+    animation: ['responsive', 'hover', 'focus'],
+  },
+  plugins: [require('@tailwindcss/ui')],
+};
