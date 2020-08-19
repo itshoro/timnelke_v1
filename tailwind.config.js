@@ -2,6 +2,9 @@ module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js'],
   theme: {
     extend: {
+      transitionProperty: {
+        spacing: 'margin, padding',
+      },
       screens: {
         dark: { raw: '(prefers-color-scheme: dark)' },
       },
@@ -30,4 +33,7 @@ module.exports = {
     animation: ['responsive', 'hover', 'focus'],
   },
   plugins: [require('@tailwindcss/ui')],
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
 };
