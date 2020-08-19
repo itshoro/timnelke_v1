@@ -1,8 +1,13 @@
 import Link from 'next/link';
 
-const Navigation = ({ className }) => {
+const Navigation = ({ children, active, className }) => {
   return (
-    <div className={`flex flex-row-reverse z-40 ${className}`}>
+    <div
+      // className={`flex flex-row-reverse z-40 ${className} ${
+      //   scrolled ? 'fixed' : 'static'
+      // }`}
+      className={`flex flex-row-reverse z-40 ${className}`}
+    >
       <input className="hidden" type="checkbox" id="hamburger" />
       <label
         htmlFor="hamburger"
@@ -14,19 +19,9 @@ const Navigation = ({ className }) => {
       </label>
       <nav className="h-screen w-screen md:w-auto md:h-auto absolute md:relative top-0 right-0 bg-gray-100 dark:bg-black md:bg-transparent transform -translate-y-full md:translate-y-0">
         <ul className="flex flex-col md:flex-row h-full space-y-4 md:space-y-0 md:space-x-12 text-2xl md:text-base md:font-medium items-center justify-center md:space-x-0 md:space-x-2">
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-          </li>
-          <li>
-            <a href="#">Projects</a>
-          </li>
+          {[...children].map((child) => (
+            <li>{child}</li>
+          ))}
         </ul>
       </nav>
       <style jsx>{`
