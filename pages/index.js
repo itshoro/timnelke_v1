@@ -22,26 +22,17 @@ import {
 
 export default function Home() {
   return (
-    <div className="dark:bg-black dark:text-gray-300">
+    <div>
       <Head>
         <title>Tim Nelke</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="min-h-screen flex flex-col px-8 md:px-24 py-8 z-50">
-        <div className="flex items-center justify-between border-b border-lighter-gray dark:border-off-black py-6 z-50">
-          <Link href="/">
-            <a className="z-50">
-              <Logo className="h-8 hover:text-foxfire-600" />
-            </a>
-          </Link>
-          <Navigation />
-        </div>
-
         <section className="grid grid-flow-row md:grid-cols-2 gap-8 my-auto z-10">
           <h1 className="text-black font-medium dark:text-white text-lg leading-none">
             Ohayo, my name is <br />
-            <span className="text-transparent text-gradient text-6xl font-bold">
+            <span className="text-transparent text-gradient text-6xl font-extrabold">
               Tim Nelke.
             </span>
           </h1>
@@ -159,8 +150,8 @@ export default function Home() {
 
         <div className="bg-gray-100 dark:bg-off-black bg-opacity-50 w-full h-full row-start-1 md:row-start-auto">
           <div className="flex flex-col h-full py-8 md:py-0">
-            <div className="flex flex-row md:flex-col items-start justify-start mx-8 md:m-auto overflow-hidden md:w-3/5 lg:w-2/5 bg-white dark:bg-black rounded shadow-lg">
-              <div className="w-2/5 md:w-auto">
+            <div className="flex flex-col items-start justify-start mx-8 md:m-auto overflow-hidden md:w-3/5 lg:w-2/5 bg-white dark:bg-black rounded shadow-lg">
+              <div>
                 <img src="/profile.jpg" className="block object-contain" />
               </div>
               <div className="w-full h-full">
@@ -180,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="flex items-center justify-center text-light-gray dark:text-dark-gray px-24 py-12 space-x-2">
+      <footer className="flex items-center justify-center text-light-gray dark:text-dark-gray px-8 md:px-24 py-12 space-x-2">
         <Logo className="h-8 border-r border-lighter-gray dark:border-off-black pr-2" />
         <div className="flex flex-col text-xs">
           <span>Designed and Developed by</span>
