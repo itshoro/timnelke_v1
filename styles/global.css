@@ -1,6 +1,20 @@
 @tailwind base;
 @tailwind components;
 
+@font-face {
+  font-family: 'Inter Var';
+  src: url('../public/fonts/Inter.otf') format('opentype');
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+html {
+  font-family: 'Inter Var', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-display: swap;
+}
+
 ::selection {
   background-color: #79ebff;
   @apply text-off-black;
