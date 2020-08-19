@@ -1,24 +1,23 @@
+const fac = 2;
+const scale = 55;
+let rows, cols;
+
+let terrain = [];
+let alpha = [];
+let fadeIn = 0;
+let velocityY = 0;
+
+const isWindowDefined = typeof window !== 'undefined';
+
+let h = isWindowDefined ? window.innerHeight / 2 : 1;
+let w = isWindowDefined ? window.innerWidth / 2 : 1;
+
+const LIGHT = 0;
+const DARK = 1;
+const colors = [0, 255];
+let activeColor = LIGHT;
 const AnimatedTerrain = ({ className }) => {
   const Sketch = typeof window !== 'undefined' ? require('react-p5') : 'null';
-
-  const fac = 2;
-  const scale = 55;
-  let rows, cols;
-
-  let terrain = [];
-  let alpha = [];
-  let fadeIn = 0;
-  let velocityY = 0;
-
-  const isWindowDefined = typeof window !== 'undefined';
-
-  let h = isWindowDefined ? window.innerHeight / 2 : 1;
-  let w = isWindowDefined ? window.innerWidth / 2 : 1;
-
-  const LIGHT = 0;
-  const DARK = 1;
-  const colors = [0, 255];
-  let activeColor = LIGHT;
 
   let media;
   if (isWindowDefined)
