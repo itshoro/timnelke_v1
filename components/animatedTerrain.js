@@ -99,12 +99,9 @@ const AnimatedTerrain = ({ className }) => {
   };
 
   return (
-    <Sketch
-      className={className}
-      setup={setup}
-      draw={draw}
-      windowResized={windowResized}
-    />
+    <div className={className}>
+      <Sketch setup={setup} draw={draw} windowResized={windowResized} />
+    </div>
   );
 };
 
