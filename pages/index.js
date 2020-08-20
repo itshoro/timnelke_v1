@@ -20,42 +20,42 @@ import {
   TimNelkeIcon,
 } from '../components/icons';
 
-export default function Home() {
+export default function Home({ className }) {
   return (
-    <div>
+    <div className={className}>
       <Head>
         <title>Tim Nelke</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-screen flex flex-col px-8 md:px-24 py-8 z-50">
-        <section className="grid grid-flow-row md:grid-cols-2 gap-8 my-auto z-10">
-          <h1 className="text-black font-medium dark:text-white text-lg leading-none">
-            Ohayo, my name is <br />
-            <span className="text-transparent text-gradient text-6xl font-extrabold">
+      <div className="px-8 md:px-24 lg:px-48 py-24">
+        <div className="flex flex-col">
+          <section className="flex flex-col w-reading gap-8 my-auto">
+            <h1 className="mt-6 text-3xl sm:text-4xl text-transparent text-gradient font-extrabold leading-tight">
+              Ohayo, my name is <br />
               Tim Nelke.
-            </span>
-          </h1>
+            </h1>
 
-          <p className="font-medium text-black dark:text-gray-200">
-            Based in Willich, Germany, I’m a computer science student at{' '}
-            <a
-              className="text-foxfire-600 hover:underline"
-              href="https://www.hs-niederrhein.de/"
-            >
-              Hochschule Niederrhein
-            </a>
-            , currently threading the needle between being a jack-of-all-trades
-            and becoming an expert, who blends design knowledge and application
-            development.
-          </p>
-        </section>
-        <AnimatedTerrain className="block absolute bottom-0 left-0 opacity-75 overflow-hidden w-screen max-w-full z-0" />
+            <p className="font-medium text-black dark:text-gray-200">
+              Based in Willich, Germany, I’m a computer science student at{' '}
+              <a
+                className="text-foxfire-600 hover:underline"
+                href="https://www.hs-niederrhein.de/"
+              >
+                Hochschule Niederrhein
+              </a>
+              , currently threading the needle between being a
+              jack-of-all-trades and becoming an expert, who blends design
+              knowledge and application development.
+            </p>
+          </section>
+          <AnimatedTerrain className="block absolute bottom-0 left-0 overflow-hidden w-screen max-w-full -z-1" />
+        </div>
       </div>
 
       <section className="grid grid-cols-1 grid-flow-row md:grid-rows-1 md:grid-cols-2 md:gap-8">
-        <div className="px-8 md:pr-0 md:pl-24 py-12">
-          <div className="leading-relaxed border-b border-lighter-gray dark:border-off-black pb-12 mb-12">
+        <div className="px-8 md:pr-0 md:pl-24 lg:pl-48 py-12 space-y-12">
+          <div className="leading-relaxed border-b border-lighter-gray dark:border-off-black pb-12">
             <h2 className="text-black dark:text-white font-bold my-12">
               Biography
             </h2>
@@ -86,9 +86,9 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 dark:text-light-gray">
+          <div className="grid grid-cols-2 gap-4 pb-12 text-sm text-off-black dark:text-light-gray border-b border-lighter-gray dark:border-off-black">
             <div>
-              <div className="flex items-center space-x-2 text-black mb-2">
+              <div className="inline-flex items-center justify-start space-x-2 text-black mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
                 <Adjustments size="16" />
                 <h2 className="font-bold text-xs uppercase">Stats</h2>
               </div>
@@ -96,51 +96,51 @@ export default function Home() {
                 <li>
                   <div className="flex items-center space-x-2">
                     <AcademicCapOutline size="16" />
-                    <span>Active Student</span>
+                    <span className="truncate">Active Student</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <User size="16" />
-                    <span>Giver, ISFJ-A / ISFJ-T</span>
+                    <span className="truncate">Giver, ISFJ-A / ISFJ-T</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <Microphone size="16" />
-                    <span>Conference Talk on PWAs</span>
+                    <span className="truncate">Talk on PWAs</span>
                   </div>
                 </li>
               </ul>
             </div>
             <div>
-              <div className="flex items-center space-x-2 text-black mb-2">
+              <div className="inline-flex items-center justify-start space-x-2 text-black mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
                 <Code size="16" />
-                <h2 className="font-bold uppercase">Skills</h2>
+                <h2 className="font-bold text-xs uppercase">Skills</h2>
               </div>
               <ul className="space-y-2">
                 <li>
                   <div className="flex items-center space-x-2">
                     <FigmaIcon />
-                    <span>Design, Wireframes</span>
+                    <span className="truncate">Design, Wireframes</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <PythonIcon />
-                    <span>Python</span>
+                    <span className="truncate">Python</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <DotNetCoreIcon />
-                    <span>.NET Core</span>
+                    <span className="truncate">.NET Core</span>
                   </div>
                 </li>
                 <li>
                   <div className="flex items-center space-x-2">
                     <JavascriptIcon />
-                    <span>JavaScript, HTML5, CSS3</span>
+                    <span className="truncate">JavaScript, HTML5, CSS3</span>
                   </div>
                 </li>
               </ul>
@@ -162,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-8 md:px-24">
+      <section className="px-8 md:px-24 lg:px-48">
         <h2 className="text-black font-bold my-12">Projects</h2>
         <div className="grid grid-cols-4 gap-8">
           <div className="w-full h-64 bg-black dark:bg-off-black col-span-2 rounded"></div>
@@ -171,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="flex items-center justify-center text-light-gray dark:text-dark-gray px-8 md:px-24 py-12 space-x-2">
+      <footer className="flex items-center justify-center text-light-gray dark:text-dark-gray px-8 md:px-24 lg:px-48 py-12 space-x-2">
         <Logo className="h-8 border-r border-lighter-gray dark:border-off-black pr-2" />
         <div className="flex flex-col text-xs">
           <span>Designed and Developed by</span>
