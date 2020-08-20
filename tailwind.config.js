@@ -27,10 +27,15 @@ module.exports = {
       fontSize: {
         '6xl': '3.5rem',
       },
+      zIndex: {
+        '-1': '-1',
+      },
     },
   },
   variants: {
     animation: ['responsive', 'hover', 'focus'],
+    padding: ['responsive', 'hover', 'focus'],
+    zIndex: ['responsive'],
   },
   plugins: [require('@tailwindcss/ui')],
   future: {
