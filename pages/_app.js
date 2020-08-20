@@ -1,9 +1,8 @@
 import '../styles/global.css';
 import Navigation from '../components/navigation';
 import NextLink from 'next/link';
-import Logo from '../components/logo';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = ({ Component, pageProps }) => {
   const navLinks = [
@@ -38,36 +37,33 @@ const App = ({ Component, pageProps }) => {
     });
   }
 
+  let [activeLink, setActiveLink] = useState(navLinks[0].name);
+
   return (
-    <div className="dark:bg-black dark:text-gray-300">
-      <div
-        className={`${
-          scroll < 100 ? 'pt-8 ' : 'pt-0 '
-        }fixed w-full transition-spacing duration-150 ease-out bg-white dark:bg-black z-50`}
-      >
-        <div
-          className={`px-8 md:px-24 flex items-center justify-between border-b border-lighter-gray dark:border-off-black py-6 z-50`}
-        >
-          <NextLink href="/">
-            <a className="z-50">
-              <Logo className="h-8 hover:text-foxfire-600" />
+    <div>
+      <Navigation scroll={scroll}>
+        {[...navLinks].map(({ name, href, isLocal }) =>
+          isLocal ? (
+            <NextLink href={href} key={name}>
+              <a
+                onClick={(e) => {
+                  setActiveLink(name);
+                }}
+                className={`${
+                  activeLink === name ? 'border-black pb-1' : 'pb-2'
+                } md:text-sm font-bold hover:pb-1 border-b-2 border-transparent hover:border-black transition-all duration-150 ease-out`}
+              >
+                {name}
+              </a>
+            </NextLink>
+          ) : (
+            <a href={href} key={name}>
+              {name}
             </a>
-          </NextLink>
-          <Navigation>
-            {[...navLinks].map(({ name, href, isLocal }) =>
-              isLocal ? (
-                <NextLink href={href} key={name}>
-                  <a>{name}</a>
-                </NextLink>
-              ) : (
-                <a href={href} key={name}>
-                  {name}
-                </a>
-              )
-            )}
-          </Navigation>
-        </div>
-      </div>
+          )
+        )}
+      </Navigation>
+      {/* <Component className="pt-32" {...pageProps} /> */}
       <Component {...pageProps} />
     </div>
   );
