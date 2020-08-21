@@ -1,3 +1,5 @@
+import Sketch from 'react-p5';
+
 const fac = 2;
 const scale = 55;
 let rows, cols;
@@ -13,6 +15,7 @@ let h = isWindowDefined ? window.innerHeight / 2 : 1;
 let w = isWindowDefined ? window.innerWidth / 2 : 1;
 
 const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+const isMobile = /Mobi/.test(userAgent);
 
 const LIGHT = 0;
 const DARK = 1;
@@ -20,7 +23,7 @@ const colors = [0, 255];
 let activeColor = LIGHT;
 
 const AnimatedTerrain = ({ className }) => {
-  const Sketch = typeof window !== 'undefined' ? require('react-p5') : 'null';
+  if (isMobile) return <div></div>;
 
   let media;
   if (isWindowDefined)
@@ -54,12 +57,12 @@ const AnimatedTerrain = ({ className }) => {
     media.addListener(changeColorScheme);
   };
   const windowResized = (p) => {
-    if (!/Mobi/.test(userAgent)) {
+    if (!isMobile) {
       h = isWindowDefined ? window.innerHeight / 2 : 1;
       w = isWindowDefined ? window.innerWidth / 2 : 1;
       generateData(p);
 
-      p.resizeCanvas(w, h);
+      p.resizeCanvas(w * 2, h * 2);
       p.canvas.style.width = '100%';
       p.canvas.style.height = '100%';
     }
