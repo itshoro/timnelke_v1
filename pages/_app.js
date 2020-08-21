@@ -50,7 +50,9 @@ const App = ({ Component, pageProps }) => {
                   setActiveLink(name);
                 }}
                 className={`${
-                  activeLink === name ? 'border-black pb-1' : 'pb-2'
+                  activeLink === name
+                    ? 'border-black dark:border-white pb-1'
+                    : 'pb-2'
                 } md:text-sm font-bold hover:pb-1 border-b-2 border-transparent hover:border-black transition-all duration-150 ease-out`}
               >
                 {name}
