@@ -39,7 +39,7 @@ const Navigation = ({ scroll, children, active, className }) => {
   }
 
   return (
-    <div className="w-full" style={{ height: '100px' }}>
+    <div className="w-full" style={{ height: '113px' }}>
       <div
         className={`fixed w-full z-50 ${backgroundStyling} transition-transform duration-200 ease-out transform ${
           scroll > 100 ? '-translate-y-8' : ''
