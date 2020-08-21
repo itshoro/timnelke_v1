@@ -28,7 +28,7 @@ export default function Home({ className }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="px-8 md:px-12 lg:px-24 py-24">
+      <div className="px-8 md:px-12 lg:px-24 py-24 relative">
         <div className="flex flex-col md:relative">
           <section className="flex flex-col gap-8 w-reading md:px-12 lg:px-24 md:py-24 my-auto">
             <h1 className="mt-6 text-3xl sm:text-4xl lg:text-6xl text-transparent text-gradient font-extrabold leading-tight">
