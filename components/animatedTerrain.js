@@ -12,10 +12,13 @@ const isWindowDefined = typeof window !== 'undefined';
 let h = isWindowDefined ? window.innerHeight / 2 : 1;
 let w = isWindowDefined ? window.innerWidth / 2 : 1;
 
+const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+
 const LIGHT = 0;
 const DARK = 1;
 const colors = [0, 255];
 let activeColor = LIGHT;
+
 const AnimatedTerrain = ({ className }) => {
   const Sketch = typeof window !== 'undefined' ? require('react-p5') : 'null';
 
@@ -30,6 +33,7 @@ const AnimatedTerrain = ({ className }) => {
   const generateData = (p) => {
     rows = Math.ceil(h / scale) + 2;
     cols = Math.ceil(w / scale) + 2;
+
     for (let y = 0; y < rows; y++) {
       terrain[y] = [];
       alpha[y] = p.map(y, 0, rows - 1, 5, 15);
@@ -49,15 +53,17 @@ const AnimatedTerrain = ({ className }) => {
     changeColorScheme(media);
     media.addListener(changeColorScheme);
   };
-
   const windowResized = (p) => {
-    h = isWindowDefined ? window.innerHeight / 2 : 1;
-    w = isWindowDefined ? window.innerWidth / 2 : 1;
-    generateData(p);
+    if (!/Mobi/.test(userAgent)) {
+      h = isWindowDefined ? window.innerHeight / 2 : 1;
+      w = isWindowDefined ? window.innerWidth / 2 : 1;
+      generateData(p);
 
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+      p.resizeCanvas(w, h);
+      p.canvas.style.width = '100%';
+      p.canvas.style.height = '100%';
+    }
   };
-
   const draw = (p) => {
     p.background(colors[(activeColor + 1) % colors.length]);
 
