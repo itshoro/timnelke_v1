@@ -7,7 +7,7 @@ const NavigationLinks = ({ children, menuOpen }) => {
     <nav
       className={`h-screen w-screen md:z-50 md:w-auto md:h-auto absolute md:relative top-0 right-0 transform -translate-y-full md:translate-y-0 md:bg-transparent md:bg-opacity-0 ${backgroundStyling}`}
     >
-      <ul className="flex flex-col md:flex-row h-full space-y-4 md:space-y-0 md:space-x-12 text-2xl md:text-base md:font-medium items-center justify-center md:space-x-0 md:space-x-2">
+      <ul className="flex flex-col md:flex-row h-screen md:h-full space-y-4 md:space-y-0 md:space-x-12 text-2xl md:text-base md:font-medium items-center justify-center md:space-x-0 md:space-x-2">
         {[...children].map((child, i) => (
           <li
             key={i}
