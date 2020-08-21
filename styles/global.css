@@ -17,11 +17,25 @@ html {
 
 nav {
   z-index: -1;
-  transition: 150ms ease-out transform;
+  transition: 300ms ease-out transform;
 }
-#hamburger:checked ~ nav {
+#hamburger:checked ~ div nav {
   transform: none;
 }
+
+/* 
+This is a hack. Right now the text from the menu would be on top of the nav bar, which looks bad. 
+By delaying the fade in on inital "pull down" I can surpess the user from seeing it, as the text will 
+only get visible on screen. Another option would be to just use a second navbar for mobile or swap to 
+solid colors, but I really like the backdrop-filter 
+*/
+#hamburger ~ div nav li {
+  transition-delay: 150ms;
+}
+#hamburger:checked ~ div nav li {
+  transition-delay: 0ms;
+}
+
 label {
   width: 23px;
   height: 14px;
@@ -45,13 +59,13 @@ label span:nth-child(3) {
   top: 100%;
 }
 
-#hamburger:checked ~ label span:nth-child(1) {
+#hamburger:checked ~ div label span:nth-child(1) {
   transform: rotateZ(45deg) translateY(-75%);
 }
-#hamburger:checked ~ label span:nth-child(2) {
+#hamburger:checked ~ div label span:nth-child(2) {
   opacity: 0;
 }
-#hamburger:checked ~ label span:nth-child(3) {
+#hamburger:checked ~ div label span:nth-child(3) {
   transform: rotateZ(-45deg) translateY(75%);
   transform-origin: left;
 }

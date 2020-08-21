@@ -2,19 +2,30 @@ import NextLink from 'next/link';
 import Logo from '../components/logo';
 import { useState } from 'react';
 
-const NavigationLinks = ({ children, active }) => {
+const NavigationLinks = ({ children, menuOpen }) => {
   return (
-    <nav className="h-screen w-screen md:z-50 md:w-auto md:h-auto absolute md:relative top-0 right-0 bg-white dark:bg-black md:bg-transparent transform -translate-y-full md:translate-y-0">
+    <nav
+      className={`h-screen w-screen md:z-50 md:w-auto md:h-auto absolute md:relative top-0 right-0 transform -translate-y-full md:translate-y-0 md:bg-transparent md:bg-opacity-0 ${backgroundStyling}`}
+    >
       <ul className="flex flex-col md:flex-row h-full space-y-4 md:space-y-0 md:space-x-12 text-2xl md:text-base md:font-medium items-center justify-center md:space-x-0 md:space-x-2">
         {[...children].map((child, i) => (
-          <li key={i}>{child}</li>
+          <li
+            key={i}
+            className={`opacity-0 transition-opacity duration-100 ease-out ${
+              menuOpen ? 'opacity-100' : ''
+            } md:opacity-100`}
+          >
+            {child}
+          </li>
         ))}
       </ul>
     </nav>
   );
 };
 
-const backgroundStyling = 'bg-white dark:bg-black';
+const backgroundStyling =
+  'bg-white bg-opacity-75 dark:bg-black dark:bg-opacity-75';
+const inlineStyle = { 'backdrop-filter': 'blur(0.2rem)' };
 
 const Navigation = ({ scroll, children, active, className }) => {
   let [menuOpen, setMenuOpen] = useState(false);
@@ -28,27 +39,33 @@ const Navigation = ({ scroll, children, active, className }) => {
   }
 
   return (
-    <div className="w-full z-50" style={{ height: '100px' }}>
-      <div className={`fixed w-full`}>
+    <div className="w-full" style={{ height: '100px' }}>
+      <div
+        className={`fixed w-full z-50 ${backgroundStyling}`}
+        style={inlineStyle}
+      >
         <div
           className={`${
-            scroll < 100 ? 'pt-8 ' : 'pt-0 '
-          }transition-spacing duration-150 ease-out ${backgroundStyling}`}
-        ></div>
+            scroll < 100 ? 'pt-8 ' : `pt-0 `
+          }transition-spacing duration-200 ease-out`}
+        />
         <div
           className={`${
-            scroll < 100 ? 'border-b ' : 'shadow-md '
-          }border-lighter-gray dark:border-off-black z-50`}
+            scroll < 100 ? 'border-b ' : `shadow `
+          }transition-shadow duration-300 border-lighter-gray dark:border-off-black z-50`}
         >
+          <input className="hidden" type="checkbox" id="hamburger" />
+
           <div
-            className={`flex py-6 px-8 md:px-24 lg:px-48 items-center justify-between ${backgroundStyling}`}
+            // className={`flex py-6 px-8 md:px-24 lg:px-48 items-center justify-between ${backgroundStyling}`}
+            className={`flex py-6 px-8 md:px-24 lg:px-48 items-center justify-between z-50`}
           >
             <NextLink href="/">
               <a className="z-50">
                 <Logo className="h-8 hover:text-foxfire-600" />
               </a>
             </NextLink>
-            <div className={`flex flex-row-reverse z-40`}>
+            <div className={`flex flex-row-reverse z-50`}>
               <label
                 htmlFor="hamburger"
                 className="inlineBlock relative md:hidden text-black dark:text-white"
@@ -61,9 +78,7 @@ const Navigation = ({ scroll, children, active, className }) => {
                 <span></span>
               </label>
             </div>
-
-            <input className="hidden" type="checkbox" id="hamburger" />
-            <NavigationLinks>{children}</NavigationLinks>
+            <NavigationLinks menuOpen={menuOpen}>{children}</NavigationLinks>
           </div>
         </div>
       </div>
