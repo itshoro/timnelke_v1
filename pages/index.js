@@ -28,15 +28,15 @@ export default function Home({ className }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="px-8 md:px-24 lg:px-48 py-24">
-        <div className="flex flex-col">
-          <section className="flex flex-col w-reading gap-8 my-auto">
-            <h1 className="mt-6 text-3xl sm:text-4xl text-transparent text-gradient font-extrabold leading-tight">
+      <div className="px-8 md:px-12 lg:px-24 py-24">
+        <div className="flex flex-col md:relative">
+          <section className="flex flex-col gap-8 w-reading md:px-12 lg:px-24 md:py-24 my-auto">
+            <h1 className="mt-6 text-3xl sm:text-4xl lg:text-6xl text-transparent text-gradient font-extrabold leading-tight">
               Ohayo, my name is <br />
               Tim Nelke.
             </h1>
 
-            <p className="font-medium text-black dark:text-gray-200">
+            <p className="md:text-lg font-medium text-black dark:text-gray-200">
               Based in Willich, Germany, I’m a computer science student at{' '}
               <a
                 className="text-foxfire-600 hover:underline"
@@ -88,7 +88,7 @@ export default function Home({ className }) {
           </div>
           <div className="grid grid-cols-2 gap-4 pb-12 text-sm text-off-black dark:text-light-gray border-b border-lighter-gray dark:border-off-black">
             <div>
-              <div className="inline-flex items-center justify-start space-x-2 text-black mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
+              <div className="inline-flex items-center justify-start space-x-2 text-black dark:text-white mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
                 <Adjustments size="16" />
                 <h2 className="font-bold text-xs uppercase">Stats</h2>
               </div>
@@ -114,7 +114,7 @@ export default function Home({ className }) {
               </ul>
             </div>
             <div>
-              <div className="inline-flex items-center justify-start space-x-2 text-black mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
+              <div className="inline-flex items-center justify-start space-x-2 text-black dark:text-white mb-4 pb-1 border-b-2 border-lighter-gray dark:border-off-black">
                 <Code size="16" />
                 <h2 className="font-bold text-xs uppercase">Skills</h2>
               </div>
