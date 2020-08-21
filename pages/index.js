@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Logo from '../components/logo';
-import Navigation from '../components/navigation';
-import AnimatedTerrain from '../components/animatedTerrain';
+import loadable from '@loadable/component';
+
+const AnimatedTerrain = loadable(() => import('../components/animatedTerrain'));
+
 import {
   AcademicCapOutline,
   Adjustments,
@@ -152,7 +152,11 @@ export default function Home({ className }) {
           <div className="flex flex-col h-full py-8 md:py-0">
             <div className="flex flex-col items-start justify-start mx-8 md:m-auto overflow-hidden md:w-3/5 lg:w-2/5 bg-white dark:bg-black rounded shadow-lg">
               <div>
-                <img src="/profile.jpg" className="block object-contain" />
+                <img
+                  src="/profile.jpg"
+                  className="block object-contain"
+                  loading="lazy"
+                />
               </div>
               <div className="w-full h-full">
                 <Social />
@@ -172,7 +176,7 @@ export default function Home({ className }) {
       </section>
 
       <footer className="flex items-center justify-center text-light-gray dark:text-dark-gray px-8 md:px-24 lg:px-48 py-12 space-x-2">
-        <Logo className="h-8 border-r border-lighter-gray dark:border-off-black pr-2" />
+        <TimNelkeIcon className="h-8 border-r border-lighter-gray dark:border-off-black pr-2" />
         <div className="flex flex-col text-xs">
           <span>Designed and Developed by</span>
           <span className="font-medium">

@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import Logo from '../components/logo';
+import { TimNelkeIcon } from '../components/icons';
 import { useState } from 'react';
 
 const NavigationLinks = ({ children, menuOpen }) => {
@@ -25,7 +25,7 @@ const NavigationLinks = ({ children, menuOpen }) => {
 
 const backgroundStyling =
   'bg-white bg-opacity-75 dark:bg-black dark:bg-opacity-75';
-const inlineStyle = { 'backdrop-filter': 'blur(0.2rem)' };
+const inlineStyle = { backdropFilter: 'blur(0.2rem)' };
 
 const Navigation = ({ scroll, children, active, className }) => {
   let [menuOpen, setMenuOpen] = useState(false);
@@ -60,7 +60,7 @@ const Navigation = ({ scroll, children, active, className }) => {
           >
             <NextLink href="/">
               <a className="z-50">
-                <Logo className="h-8 hover:text-foxfire-600" />
+                <TimNelkeIcon className="h-8 hover:text-foxfire-600" />
               </a>
             </NextLink>
             <div className={`flex flex-row-reverse z-50`}>
