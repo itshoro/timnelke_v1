@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@loadable/component": "^5.13.1",
     "@tailwindcss/ui": "^0.3.0",
     "autoprefixer": "^9.8.0",
     "heroicons": "^0.3.7",
