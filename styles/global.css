@@ -6,6 +6,7 @@
   src: url('../public/fonts/Inter.otf') format('opentype');
   font-style: normal;
   font-weight: 100 900;
+  font-display: swap;
 }
 
 html {
