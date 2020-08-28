@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import loadable from '@loadable/component';
 
-const AnimatedTerrain = loadable(() => import('../components/animatedTerrain'));
+import HeightmapTerrain from '../components/heightmapTerrain';
 
 import {
   AcademicCapOutline,
@@ -49,7 +48,7 @@ export default function Home({ className }) {
               knowledge and application development.
             </p>
           </section>
-          <AnimatedTerrain className="block absolute bottom-0 left-0 overflow-hidden w-screen max-w-full -z-1" />
+          <HeightmapTerrain className="block absolute bottom-0 left-0 overflow-hidden w-screen max-w-full -z-1" />
         </div>
       </div>
 
@@ -156,6 +155,7 @@ export default function Home({ className }) {
                   src="/profile.jpg"
                   className="block object-contain"
                   loading="lazy"
+                  alt=""
                 />
               </div>
               <div className="w-full h-full">

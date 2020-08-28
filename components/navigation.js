@@ -59,7 +59,7 @@ const Navigation = ({ scroll, children, active, className }) => {
             className={`flex py-6 px-8 md:px-24 lg:px-48 items-center justify-between z-50`}
           >
             <NextLink href="/">
-              <a className="z-50">
+              <a className="z-50" aria-label="Tim Nelke Icon">
                 <TimNelkeIcon className="h-8 hover:text-foxfire-600" />
               </a>
             </NextLink>
